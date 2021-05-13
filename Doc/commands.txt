@@ -1,0 +1,32 @@
+﻿
+$Y**COMMANDS**$W
+
+$MCommand Types$W
+
+  As mentioned before, there is two types of commands. Custom, and ConsoleCommands.
+  You can call them by using "flags" that tell to the tokenizer that which type of command is going to be called.
+  By giving '@', you tell the tokenizer to create a custom command token with the value of upcoming characters until space.
+  By giving ':', you tell the tokneizer to create a console command token with the value of upcoming characters until space.
+
+$MCommand statement syntax$W
+
+  Command statement consist of command name and parameter list. The syntax is always the same,
+  but different commands use different amounts of parameters as they wish.
+  For example, these documentation commands, are console commands that doesn't take any parameters.
+  There is indepth description for every command in their own documentation commands.
+
+  Syntax
+
+  commandName param1, param2, param3 ...
+
+  Example
+
+  @output "cls";    ? calling CustomCommand "output" and give parameter "cls", that cleans the outputscreen
+
+  ? Here we print 10 times "hellothere" new line "lolz" new line
+  :times 10, 
+  {
+      :print "hello there!\n", "lolz\n";
+  };
+
+Previous $M:doc_general$W;   Next $M:doc_console_commands$W;

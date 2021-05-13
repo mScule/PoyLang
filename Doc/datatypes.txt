@@ -1,0 +1,23 @@
+﻿
+$Y**DATATYPES**$W
+
+$MFloat$W
+  
+  Every number is treated as a float number.
+  Float works by parsing string of text to C# float and treating it as such.
+
+$MString$W
+
+  String contains characters. MSCC only supports strings consisting of C# char datatype.
+  String literals can be defined by surrounding the string with quotation marks " ... " or curly braces { ... }.
+  By using curly braces you dont have to escape quotes inside strings,
+  and by using quotation marks, you don't have to escape closing curly brace.
+
+$MEscape characters$W
+
+  Inside string literal, you can use \n, \t, \\, \}, and \" to use escape characters.
+  \} and \" are special cases. You \} if string is contained inside curly braces,
+  and \" if string is contained inside quotation marks. If you add \} inside string that is contained inside "",
+  it will cause a unsupported escape character error and vice versa inside {} using \" will cause the same.
+
+Previous $M:doc_variables$W;    Next $M:doc_operations$W;
