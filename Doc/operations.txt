@@ -10,15 +10,18 @@ $MOperators that work with both datatypes$W
   String append operator              &
   Parentheses                         ()
 
-$MOperators that work variable containing any type of value$W
+$MOperators that work variable containing any
+type of value$W
 
   Assignment string append operator   &=
 
-$MOperators that work only with float datatype$W
+$MOperators that work only with float
+datatype$W
 
-  Arithmetic operators                +, -, *, /
+  Arithmetic operators       +, -, *, /
 
-$MOperators that work only with variables containing float$W
+$MOperators that work only with variables
+containing float$W
 
   Assignment addition operator        +=
   Assignment subtraction operator     -=
@@ -27,4 +30,5 @@ $MOperators that work only with variables containing float$W
   Increment operator                  ++
   Decrement operator                  --
 
-Previous $M:doc_datatypes$W; Next $M:doc_output$W;
+Previous $M:doc_datatypes$W;
+Next     $M:doc_output$W;

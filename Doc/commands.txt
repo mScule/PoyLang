@@ -3,30 +3,45 @@ $Y**COMMANDS**$W
 
 $MCommand Types$W
 
-  As mentioned before, there is two types of commands. Custom, and ConsoleCommands.
-  You can call them by using "flags" that tell to the tokenizer that which type of command is going to be called.
-  By giving '@', you tell the tokenizer to create a custom command token with the value of upcoming characters until space.
-  By giving ':', you tell the tokneizer to create a console command token with the value of upcoming characters until space.
+  As mentioned before, there is two types of
+  commands. Custom, and ConsoleCommands. You
+  can call them by using "flags" that tell to
+  the tokenizer that which type of command is
+  going to be called. By giving '@', you tell
+  the tokenizer to create a custom command
+  token with the value of upcoming characters
+  until space. By giving ':', you tell the
+  tokneizer to create a console command token
+  with the value of upcoming characters until
+  space.
 
 $MCommand statement syntax$W
 
-  Command statement consist of command name and parameter list. The syntax is always the same,
-  but different commands use different amounts of parameters as they wish.
-  For example, these documentation commands, are console commands that doesn't take any parameters.
-  There is indepth description for every command in their own documentation commands.
+  Command statement consist of command name 
+  and parameter list. The syntax is always
+  the same, but different commands use
+  different amounts of parameters as they
+  wish. For example, these documentation
+  calls, are console commands that doesn't 
+  take any parameters. There is indepth 
+  description for every command in their own
+  documentation commands.
 
-  Syntax
+  $CSyntax$W
 
   commandName param1, param2, param3 ...
 
-  Example
+  $CExample
 
-  @output "cls";    ? calling CustomCommand "output" and give parameter "cls", that cleans the outputscreen
+  $G? calling ConsoleCommand "OUT",
+  ? that prints stuff to screen.
+  $M:out$W "stuff";
 
-  ? Here we print 10 times "hellothere" new line "lolz" new line
-  :times 10, 
+  $G? Here we print hello 10 times
+  $M:times $Y10$W, 
   {
-      :print "hello there!\n", "lolz\n";
+      $M:out $W"hello there!$M\n$W";
   };
 
-Previous $M:doc_general$W;   Next $M:doc_console_commands$W;
+Previous $M:doc_general$W;
+Next     $M:doc_console_commands$W;

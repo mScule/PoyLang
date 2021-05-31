@@ -3,23 +3,34 @@ $Y**VARIABLES**$W
 
 $MDeclaration$W
 
-  Variables are declared by using hash sign '#' to tell the tokenizer to create variable name token.
-  You need to assign a value of some sort to the value when creating the variable for the first time.
-  If value is number, variable will be set to be a float, else it will become a string.
+  Variables are declared by using hash sign
+  '#' to tell the tokenizer to create
+  variable name token. You need to assign a
+  value of some sort to the value when
+  creating the variable for the first time.
+  If value is number, variable will be set to
+  be a float, else it will become a string.
 
 $MVariableName$W
 
-  Variable name can start with letter, or underscore, but not number.
-  Variable can contain numbers after the first letter.
+  Variable name can start with letter, or
+  underscore, but not number. Variable can
+  contain numbers after the first letter.
 
 $MScope$W
 
-  mScule console language doesn't support any sort of scopes. Every declared variables are global.
+  Poy has scopes avaliable in form of certain
+  commands.
 
 $MSwitching variable type$W
 
-  If you want to change the current variable type, from float to string,
-  you add part of string to it with string operations '&=' (append string) or inside expression with '&'.
-  If you want to change variable from string to float, you need to assign a float value to it.
+  If you want to change the current variable
+  type, from float to string, you add part of
+  string to it with string operations '&=' 
+  (append string) or inside expression with 
+  '&'. If you want to change variable from
+  string to float, you need to assign a float
+  value to it.
 
-Previous $M:doc_custom_commands$W;    Next $M:doc_datatypes$W;
+Previous $M:doc_custom_commands$W;
+Next     $M:doc_datatypes$W;

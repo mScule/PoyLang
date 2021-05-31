@@ -1,23 +1,61 @@
 ﻿
 $Y**HELP**$W
 
-MSCC (mScule Console) is a command language interpreter, that interpretes MSCCS (mScule Command Script) Scripts.
-MSCC can be used by writing the commands straight into the MSCC, or by opening a script file with :open command.
-MSCC was designed to be used as a in game console, that can be used to tweak game parameters in the runtime.
-You can get to know the syntax of MSCCS more in depth by reading through the rest of the documentation.
-Here is the commands that prints the documentation in recommended order:
+Rudeco (Runtime Debug Console) is a command
+language interpreter, that interpretes POY
+(Programming tOY) Scripts. Rudeco can be used
+by writing the commands straight into the
+Rudeco, or by running a script file with 
+$M:library$W command. Rudeco was designed to be
+used as a in game console, that can be used
+to tweak game parameters in the runtime. You
+can get to know the syntax of POY more in
+depth by reading through the rest of the
+documentation. Here is the commands that
+prints the documentation in recommended
+order:
 
-  $M:doc_general$W;           Goes through the basic syntax structure of MSCCS.
+  $M:doc_general$W;
+    
+    Goes through the basic syntax structure
+    of Poy.
 
-  $M:doc_commands$W;          Explains difference of console, and custom commands, and how to access them.
+  $M:doc_commands$W;
+    
+    Explains difference of console, and
+    custom commands, and how to access them.
 
-  $M:doc_console_commands$W;  Goes through every console command, and how to use them.
+  $M:doc_console_commands$W;
+  
+    Goes through every console command, and
+    how to use them.
 
-  $M:doc_custom_commands$W;   Contains the explanations of custom commands.
+  $M:doc_custom_commands$W;
+  
+    Contains the explanations of
+    custom commands.
 
-  $M:doc_variables$W;         Explains how to declare and use variables.
+  $M:doc_variables$W;
+  
+    Explains how to declare and use
+    variables.
 
-  $M:doc_datatypes$W;         Goes through variable datatypes String, and Float.
+  $M:doc_datatypes$W;
+  
+    Goes through variable datatypes
+    String, and Float.
 
-  $M:doc_operations$W;        Goes through included operations that can be used to manipulate variables.
+  $M:doc_operations$W;
+  
+    Goes through included operations that can
+    be used to manipulate variables.
+
+  $M:doc_output$W;
+
+    Explains how to change the style of the
+    output text.
+
+After you read these through, you should have
+decent understanding on what you can do with
+the rudeco console and poy language!
   

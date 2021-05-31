@@ -3,15 +3,20 @@ $Y**OUTPUT**$W
 
 $MMARKUP$W
 
-You can change the color of printable text with '$$' sign.
-The dollar sign tells the output that the next letter will determine the colorchannel where upcoming characters will be added.
-Output markup supports following colors: white, $Rred$W, $Bblue$W, $Ggreen$W, $Yyellow$W, $Ccyan$W, and $Mmagneta$W.
-You acces these colors with dollar sign and the first letter of the color.
-W, R, B, G, Y, C, M.
-If want to print '$$', you need to escape it with other dollar sign.
+You can change the color of printable text
+with '$$' sign. The dollar sign tells the 
+output that the next letter will determine
+the colorchannel where upcoming characters
+will be added. Output markup supports
+following colors: white, $Rred$W, $Bblue$W,
+$Ggreen$W, $Yyellow$W, $Ccyan$W, and $Mmagneta$W.
+You acces these colors with dollar sign and
+the first letter of the color. 
+W, R, B, G, Y, C, M. If want to print '$$',
+you need to escape it with other dollar sign.
 
 $MExample$W
 
-input  << $Mprint:$W "$G$$Ghello$W\n";
-output >> $Ghello$W
+input  <= $Mprint:$W "$G$$Ghello$W\n";
+output => $Ghello$W
 

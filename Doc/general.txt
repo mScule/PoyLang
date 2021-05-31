@@ -3,32 +3,47 @@ $Y**GENERAL**$W
 
 $MStatement structure$W
 
-  MSCC command language is very small and limited. It has its own good, and bad sides.
-  The syntax consist of two types of statements: assignment statements, and command statements.
+  POY language is very small and limited.
+  The syntax consist of two types of
+  statements: assignment statements, and
+  command statements.
 
-  Assignment statement takes in variablename and adds value to the given variable.
+  Assignment statement takes in variablename
+  and adds value to it. There are multiple
+  different types of assignment operators
+  avaliable. 
 
-  There can be two types of commands for command statements: CustomCommands, and ConsoleCommands.
-  The difference between the two is that the CustomCommand can return value, and ConsoleCommand can't.
-  CustomCommand can be inside expression, while ConsoleCommand can't.
+  There can be two types of commands for
+  command statements: CustomCommands, and 
+  ConsoleCommands. The difference between the
+  two is that different scenes might contain
+  different set of custom commands, while
+  every scene has the same console commands
+  avaliable.
 
-  There's also the difference that the amount of CustomCommands may have differ in different levels, and games
-  where the mscc is implemented.
-
-  Statements are ended by giving semicolon ';'. If your program consists about only one statement it can be left out,
-  and might made the program run little bit faster, since the last command won't need ';' and by adding it to the last
-  command also, parser adds one more statement to the statement list, that the interpreter will visit.
+  Statements are ended by giving semicolon.
+  If your program consists about only one
+  statement, it can be left out, and might
+  made the program run little bit faster.
 
 $MCommand, and variable names$W
 
-  Variable, and command names are case insensitive so by writing ":print", ":PrInT", and ":PRINT" will all call the same command.
-  Everytime you write variable name, or command call the tokenizer switches the lower case characters to upper case characters.
-  This is done mainly to make the MSCC easier to use.
+  Command, and variable names are case
+  insensitive, so by writing ":out",
+  ":OuT", and ":OUT" will all call the
+  same command. Everytime you write variable
+  name, or command call the tokenizer
+  switches the lower case characters to upper
+  case characters.
 
 $MComments$W
 
-  Comments can be added to the code by adding question '?' mark to it.
-  Everything after question mark is discarded by tokenizer until a new line, expect when tokenizer detects other question mark.
-  This way, you can add comments between parts of code in one line.
+  Comments can be added to the code by adding
+  question mark to it. Everything after 
+  question mark is discarded by tokenizer
+  until a new line, expect when tokenizer
+  detects other question mark. This way, you
+  can add comments between parts of code in
+  one line.
 
 Next $M:doc_commands$W;
