@@ -2,10 +2,12 @@
 {
     public class Tokenizer
     {
+        // Tokenizer
         private string input;
         private int index;
         private char currentCharacter;
 
+        // Location
         private int line, character;
 
         public Tokenizer(string input)

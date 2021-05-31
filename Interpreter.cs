@@ -10,9 +10,8 @@ namespace PoyLang
         private Dictionary<string, Variable> varList;
         private Dictionary<string, CustomCommand> customCommands;
 
-        private string docPath = @"Assets\Garudec\Poy\Doc\";
-        private string libPath = @"Assets\Garudec\Libraries\";
-
+        private string docPath = @"Assets\Rudeco\Poy\Doc\";
+        private string libPath = @"Assets\Rudeco\Libraries\";
         private string mainOut; // Main output string, that output shows
         private string secondaryOut; // Secondary output string, that contains input info
 
@@ -33,41 +32,42 @@ namespace PoyLang
         // Helper methods
         private float Float(Variable number, Location location)
         {
-            if (number.type == VariableType.Float)
-            {
-                string floatNum = "";
+            float result = 0.0f;
 
-                foreach (char c in number.value)
-                {
-                    if (c == '.')
-                        floatNum += ',';
-                    else
-                        floatNum += c;
-                }
+            bool isFloat =
+                number.type == VariableType.Float &&
+                float.TryParse(number.value, out result);
 
-                return float.Parse(floatNum) + 0.0f;
-            }
+            if (isFloat)
+                return result;
 
             else
-            {
-                Error.Throw(ErrorOrigin.Interpreter, "variable type needs to be number", location);
-                return 0.0f;
-            }
+                Error.Throw
+                (
+                    ErrorOrigin.Interpreter,
+                    "variable type needs to be a float",
+                    location
+                );
+
+            return 0.0f;
         }
 
         private float Float(string number, Location location)
         {
-            string floatNum = "";
+            float result = 0.0f;
 
-            foreach (char c in number)
-            {
-                if (c == '.')
-                    floatNum += ',';
-                else
-                    floatNum += c;
-            }
+            if (float.TryParse(number, out result))
+                return result;
 
-            return float.Parse(floatNum) + 0.0f;
+            else
+                Error.Throw
+                (
+                    ErrorOrigin.Interpreter,
+                    "value needs to be a float",
+                    location
+                );
+
+            return 0.0f;
         }
 
         private bool IsNumber(string input)
@@ -76,7 +76,7 @@ namespace PoyLang
             {
                 foreach (char c in input)
                 {
-                    if (c == '.' || c == ',' || c >= '0' && c <= '9')
+                    if (c == '.' || c >= '0' && c <= '9')
                         continue;
                     else
                         return false;
@@ -215,6 +215,9 @@ namespace PoyLang
                         case "TASK":
                             return Task(node);
 
+                        case "INTEGER":
+                            return Integer(node);
+
                         case "DELETE":
                             Delete(node);
                             break;
@@ -228,12 +231,11 @@ namespace PoyLang
                             return ListVariables();
 
                         case "LIST_LIBRARIES":
-                            string[] libs = System.IO.Directory.GetFileSystemEntries(libPath,"*.mcl");
+                            string[] libs = System.IO.Directory.GetFileSystemEntries(libPath, "*.mcl");
                             mainOut += "\n$Y**LIBRARIES**$W\n\n";
 
                             foreach (string lib in libs)
                                 mainOut += "$M*$W " + lib.Remove(0, libPath.Length) + "\n\n";
-                            
                             break;
 
                         case "LIST_CONSOLE_COMMANDS":
@@ -594,7 +596,7 @@ namespace PoyLang
             if (times < 0)
                 times -= -times;
 
-            while (times >= 0)
+            while (times > 0)
             {
                 Tokenizer tokenizer = new Tokenizer(loopInput);
                 Parser parser = new Parser(tokenizer);
@@ -609,7 +611,9 @@ namespace PoyLang
 
         private void Out(Node node)
         {
-            foreach (Node parameter in node.children[1].children)
+            int parameters = 1;
+
+            foreach (Node parameter in node.children[parameters].children)
                 mainOut += Visit(parameter);
         }
 
@@ -620,8 +624,8 @@ namespace PoyLang
             foreach (Node variable in node.children[parameters].children)
             {
                 secondaryOut +=
-                    "\n\n#" + variable.content.value + " = {\n" +
-                    TryGetVariable(variable.content.value, variable.content.location).value + "\n};\n";
+                    "\n\n#" + variable.content.value + " = {" +
+                    TryGetVariable(variable.content.value, variable.content.location).value + "};\n";
             }
         }
 
@@ -684,11 +688,11 @@ namespace PoyLang
             bool escape = false;
             int i = 1;
 
-            foreach(char c in varValue)
+            foreach (char c in varValue)
             {
                 if (escape)
                 {
-                    switch(c)
+                    switch (c)
                     {
                         case '\\':
                             subProcess += '\\';
@@ -718,7 +722,7 @@ namespace PoyLang
             // Interpreting sub process
             Dictionary<string, Variable> closure = new Dictionary<string, Variable>();
 
-            foreach(KeyValuePair<string, Variable> variable in varList)
+            foreach (KeyValuePair<string, Variable> variable in varList)
                 closure.Add(variable.Key, variable.Value);
 
             Tokenizer tokenizer = new Tokenizer(subProcess);
@@ -728,6 +732,12 @@ namespace PoyLang
             string[] iteration = interpreter.Interprete();
 
             return iteration[0];
+        }
+
+        private string Integer(Node node)
+        {
+            int parameters = 1;
+            return (int)Float(Visit(node.children[parameters].children[0]), node.content.location) + "";
         }
 
         private void Delete(Node node)
@@ -756,7 +766,7 @@ namespace PoyLang
 
             if (varList.Count != 0)
                 foreach (KeyValuePair<string, Variable> variable in varList)
-                    variableList += variable.Key + " | " + variable.Value.type.ToString() + 
+                    variableList += variable.Key + " | " + variable.Value.type.ToString() +
                         " (" + variable.Value.value + ")\n\n";
             else
                 variableList = "empty";
@@ -789,7 +799,7 @@ namespace PoyLang
             else
                 customCommandDoc += "$Rnone$W";
 
-            mainOut += customCommandDoc + "\nPrevious $M:doc_console_commands$W; Next $M:doc_variables$W;" + "\n";
+            mainOut += customCommandDoc + "\nPrevious $M:doc_console_commands$W;\nNext $M:doc_variables$W;" + "\n";
         }
 
         // Custom command related

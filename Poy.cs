@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 namespace PoyLang
 {
-    public class Poy 
+    public class Poy
     {
         private Dictionary<string, CustomCommand> customCommands;
         private Dictionary<string, Variable> varList;
 
-        private string outputOut;
-        private string outputIn;
+        private string outputOut, outputIn;
 
         public Poy(Dictionary<string, CustomCommand> customCommands)
         {
@@ -18,21 +17,22 @@ namespace PoyLang
 
             outputOut =
                 Print.Message(
-                    Print.Value("Garudec", "Game Runtime Debug Console"),
+                    "Poy",
+                    "Programming tOY\n" +
 
-                    Print.SubContent(
-                    new string[] {
-                        // Version name
-                        Print.Value("Version", "0.0.1"),
+                    // Version
+                    "Version: " + "0.0.2\n" +
 
-                        // Welcome message
-                        Print.Message("To get started", "write \"$M:help$W;\"") + "\n\n" +
-                        Print.Message("To get command list", "write \"$M:doc_console_commands$W; & $M:doc_custom_commands$W;\"") + "\n\n" +
-                        
-                        // Patch notes
-                        "First version of garudec, and poy. 0.0.1"
-                       }
-                )
+                    // Welcome message
+                    "To get started: write \"$M:help$W;\"\n" +
+                    "To get list of avaliable commands write:\n" +
+                    "\n$M:doc_console_commands$W; &" +
+                    "\n$M:doc_custom_commands$W;" + "\n\n" +
+
+                    // Patch notes
+                    "Patch Notes\n" +
+                    "+ Numbers should now work as intented\n" +
+                    "+ Documentation is now up to date\n"
             );
         }
 
@@ -47,7 +47,7 @@ namespace PoyLang
                 string[] output = interpreter.Interprete();
 
                 outputOut = output[0];
-                outputIn =  output[1];
+                outputIn = output[1];
             }
 
             catch (Exception e)
